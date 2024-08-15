@@ -34,7 +34,7 @@
 Clone the code from the repository:
 
 ```
-$ git clone <repository_url>
+$ git clone https://github.com/Roni-Boiz/system-monitor-app.git
 ```
 
 ### **Step 2: Create and activate virtual environment**
@@ -69,7 +69,7 @@ $ python3 app.py
 
 This will start the Flask server on **`localhost:5000`**. Navigate to [http://localhost:5000/](http://localhost:5000/) on your browser to access the application.
 
-image
+![app-local](https://github.com/user-attachments/assets/52b846ec-352d-48e9-a35a-b06ad5593bf6)
 
 ## **Part 2: Dockerizing the Flask application**
 
@@ -147,7 +147,7 @@ $ python3 eks.py
 ```
 
 > [!WARNING]
-> Make sure to update the image path of deployments in `eks.py`
+> Make sure to edit the name of the image on line 28 with your image Uri in `eks.py`
 
 ### **Step 3: Start Minikube tunnel**
 
@@ -160,7 +160,8 @@ seperate tab -->
 ```
 $ kubectl get service
 ```
-image
+
+![minikube](https://github.com/user-attachments/assets/d32f9758-7437-4600-81f8-00de5cec889d)
 
 This will enable to access the application on **`<external-ip>:5000`**. Navigate to [http://\<external-ip\>:5000]() on your browser to access the application.
 
@@ -280,7 +281,9 @@ api_instance.create_namespaced_service(
     body=service
 )
 ```
-make sure to edit the name of the image on line 28 with your image Uri.
+
+> [!WARNING]
+> Make sure to edit the name of the image on line 28 with your image Uri
 
 ### **Step 4: Change the current context to user the new kubernetes cluster**
 
@@ -314,11 +317,8 @@ kubectl get pods -n default (check the pods)
 kubectl get service -n default (check service)
 ```
 
-image
+![eks](https://github.com/user-attachments/assets/a8221dc2-4c4c-412d-a776-7db99ee771f0)
 
-Once your pod is up and running, run the port-forward to expose the service
+Once your pod is up and running, access thee application through the **`<external-ip>:5000`**. Navigate to [http://\<external-ip\>:5000]() on your browser to access the application.
 
-```bash
-kubectl port-forward service/<service_name> 5000:5000
-```
-image
+![app-eks](https://github.com/user-attachments/assets/2125d503-d3e4-4e40-b524-0e176ae2514a)
