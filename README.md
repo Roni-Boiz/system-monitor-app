@@ -322,3 +322,7 @@ kubectl get service -n default (check service)
 Once your pod is up and running, access thee application through the **`<external-ip>:5000`**. Navigate to [http://\<external-ip\>:5000]() on your browser to access the application.
 
 ![app-eks](https://github.com/user-attachments/assets/2125d503-d3e4-4e40-b524-0e176ae2514a)
+
+### **Step 6: Delete all resources**
+
+Delelte cluster node group, EKS cluster, ECR image and ECR repository.
